@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 # Load the Rails application.
-require 'rails_extensions'
 require_relative 'application'
 
 # Version variable
