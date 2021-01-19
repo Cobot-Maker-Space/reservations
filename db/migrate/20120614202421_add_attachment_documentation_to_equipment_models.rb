@@ -1,4 +1,4 @@
-class AddAttachmentDocumentationToEquipmentModels < ActiveRecord::Migration
+class AddAttachmentDocumentationToEquipmentModels < ActiveRecord::Migration[4.2]
   def self.up
     add_column :equipment_models, :documentation_file_name, :string
     add_column :equipment_models, :documentation_content_type, :string

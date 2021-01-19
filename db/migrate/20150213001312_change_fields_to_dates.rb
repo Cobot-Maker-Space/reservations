@@ -1,4 +1,4 @@
-class ChangeFieldsToDates < ActiveRecord::Migration
+class ChangeFieldsToDates < ActiveRecord::Migration[4.2]
   def up
     # changing all of these columns to :date types
     change_column :announcements, :starts_at, :date

@@ -1,4 +1,4 @@
-class CreateUsersRequirements < ActiveRecord::Migration
+class CreateUsersRequirements < ActiveRecord::Migration[4.2]
   def change
     create_table :users_requirements, :id => false do |t|
       t.integer :user_id

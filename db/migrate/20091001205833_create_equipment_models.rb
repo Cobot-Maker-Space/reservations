@@ -1,4 +1,4 @@
-class CreateEquipmentModels < ActiveRecord::Migration
+class CreateEquipmentModels < ActiveRecord::Migration[4.2]
   def self.up
     create_table :equipment_models do |t|
       t.string :name
@@ -11,7 +11,7 @@ class CreateEquipmentModels < ActiveRecord::Migration
       t.timestamps
     end
   end
-  
+
   def self.down
     drop_table :equipment_models
   end

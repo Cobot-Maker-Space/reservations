@@ -1,4 +1,4 @@
-class AddEquipmentReferencesToReservations < ActiveRecord::Migration
+class AddEquipmentReferencesToReservations < ActiveRecord::Migration[4.2]
   def self.up
     change_table :reservations do |t|
       t.references :equipment_model

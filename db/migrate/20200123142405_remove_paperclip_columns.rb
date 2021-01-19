@@ -1,4 +1,4 @@
-class RemovePaperclipColumns < ActiveRecord::Migration[6.0]
+class RemovePaperclipColumns < ActiveRecord::Migration[4.2][6.0]
   def change
     # Remove Paperclip columns from EquipmentModel table
     remove_column :equipment_models, :photo_file_name, :string

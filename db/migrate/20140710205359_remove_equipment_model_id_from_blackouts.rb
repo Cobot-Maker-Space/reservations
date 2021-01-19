@@ -1,4 +1,4 @@
-class RemoveEquipmentModelIdFromBlackouts < ActiveRecord::Migration
+class RemoveEquipmentModelIdFromBlackouts < ActiveRecord::Migration[4.2]
   def up
     remove_column :blackouts, :equipment_model_id
   end

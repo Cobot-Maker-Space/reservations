@@ -1,4 +1,4 @@
-class RemoveCartReservations < ActiveRecord::Migration
+class RemoveCartReservations < ActiveRecord::Migration[4.2]
   def up
     drop_table :cart_reservations
   end

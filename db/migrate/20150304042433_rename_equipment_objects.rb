@@ -1,4 +1,4 @@
-class RenameEquipmentObjects < ActiveRecord::Migration
+class RenameEquipmentObjects < ActiveRecord::Migration[4.2]
   def change
   	rename_table :equipment_objects, :equipment_items
   	rename_column :reservations, :equipment_object_id, :equipment_item_id

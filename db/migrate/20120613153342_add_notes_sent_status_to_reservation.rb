@@ -1,4 +1,4 @@
-class AddNotesSentStatusToReservation < ActiveRecord::Migration
+class AddNotesSentStatusToReservation < ActiveRecord::Migration[4.2]
   def self.up
     add_column :reservations, :notes_unsent, :boolean, :default => true
   end

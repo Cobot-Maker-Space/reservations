@@ -1,4 +1,4 @@
-class RemoveApprovalStatusFromReservation < ActiveRecord::Migration
+class RemoveApprovalStatusFromReservation < ActiveRecord::Migration[4.2]
   # for use in the flag_res method, based off of Reservation model in v5.5.0
   FLAGS = { request: (1 << 1), missed_email_sent: (1 << 5) }
 

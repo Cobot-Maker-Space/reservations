@@ -1,4 +1,4 @@
-class SetSaneConfigDefaults < ActiveRecord::Migration
+class SetSaneConfigDefaults < ActiveRecord::Migration[4.2]
   def change
     columns(:app_configs).each do |col|
       if (col.type == :string || col.type == :text) && !(col.name.include? 'favicon')

@@ -1,4 +1,4 @@
-class AddAttachmentPhotoToEquipmentModels < ActiveRecord::Migration
+class AddAttachmentPhotoToEquipmentModels < ActiveRecord::Migration[4.2]
   def self.up
     add_column :equipment_models, :photo_file_name, :string
     add_column :equipment_models, :photo_content_type, :string

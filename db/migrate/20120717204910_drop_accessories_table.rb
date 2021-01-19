@@ -1,4 +1,4 @@
-class DropAccessoriesTable < ActiveRecord::Migration
+class DropAccessoriesTable < ActiveRecord::Migration[4.2]
   def up
     drop_table :accessories_equipment_models
   end

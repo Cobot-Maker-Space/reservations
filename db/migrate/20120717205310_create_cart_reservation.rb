@@ -1,4 +1,4 @@
-class CreateCartReservation < ActiveRecord::Migration
+class CreateCartReservation < ActiveRecord::Migration[4.2]
   def up
     create_table :cart_reservations do |t|
       t.references :reserver

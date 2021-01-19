@@ -1,6 +1,6 @@
 # Migration courtesy of Thoughtbot Migration Guide
 # https://github.com/thoughtbot/paperclip/blob/master/MIGRATING.md
-class ConvertToActiveStorage < ActiveRecord::Migration[5.2]
+class ConvertToActiveStorage < ActiveRecord::Migration[4.2][5.2]
   require 'open-uri'
 
   def up

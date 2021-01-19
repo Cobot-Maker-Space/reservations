@@ -1,4 +1,4 @@
-class AddSettingsToAppConfig < ActiveRecord::Migration
+class AddSettingsToAppConfig < ActiveRecord::Migration[4.2]
   def up
     add_column :app_configs, :site_title, :string
     add_column :app_configs, :admin_email, :string
@@ -10,9 +10,9 @@ class AddSettingsToAppConfig < ActiveRecord::Migration
     add_column :app_configs, :default_per_cat_page, :integer
     add_column :app_configs, :upcoming_checkin_email_body, :text
     add_column :app_configs, :overdue_checkout_email_body, :text
-    add_column :app_configs, :overdue_checkin_email_body, :text   
+    add_column :app_configs, :overdue_checkin_email_body, :text
   end
-  
+
   def down
     remove_column :app_configs, :site_title
     remove_column :app_configs, :admin_email
@@ -26,5 +26,5 @@ class AddSettingsToAppConfig < ActiveRecord::Migration
     remove_column :app_configs, :overdue_checkout_email_body
     remove_column :app_configs, :overdue_checkin_email_body
   end
-  
+
 end

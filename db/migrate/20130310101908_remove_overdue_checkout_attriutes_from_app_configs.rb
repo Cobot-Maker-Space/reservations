@@ -1,4 +1,4 @@
-class RemoveOverdueCheckoutAttriutesFromAppConfigs < ActiveRecord::Migration
+class RemoveOverdueCheckoutAttriutesFromAppConfigs < ActiveRecord::Migration[4.2]
   def up
     remove_column :app_configs, :overdue_checkout_email_active
     remove_column :app_configs, :overdue_checkout_email_body

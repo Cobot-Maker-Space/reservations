@@ -1,4 +1,4 @@
-class FixOverdueCount < ActiveRecord::Migration[5.1]
+class FixOverdueCount < ActiveRecord::Migration[4.2][5.1]
   def change
     reversible do |dir|
       dir.up do

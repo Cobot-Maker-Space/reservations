@@ -1,4 +1,4 @@
-class CombineTypeColumnsInUsersTable < ActiveRecord::Migration
+class CombineTypeColumnsInUsersTable < ActiveRecord::Migration[4.2]
   def up
     add_column :users, :role, :string, :default => 'normal'
 

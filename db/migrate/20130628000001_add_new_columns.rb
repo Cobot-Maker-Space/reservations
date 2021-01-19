@@ -2,7 +2,7 @@
 # next migration (combine_type_columns_in_users_table) which referenced this
 # attr through the user model.
 
-class AddNewColumns < ActiveRecord::Migration
+class AddNewColumns < ActiveRecord::Migration[4.2]
   def up
   	add_column :app_configs, :require_phone, :boolean, :default => false
     add_column :users, :view_mode, :string, :default => 'admin'

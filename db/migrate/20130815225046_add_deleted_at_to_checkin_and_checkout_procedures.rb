@@ -1,4 +1,4 @@
-class AddDeletedAtToCheckinAndCheckoutProcedures < ActiveRecord::Migration
+class AddDeletedAtToCheckinAndCheckoutProcedures < ActiveRecord::Migration[4.2]
   def change
   end
 end

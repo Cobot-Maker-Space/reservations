@@ -1,4 +1,4 @@
-class RemoveViewAsAttributesFromUser < ActiveRecord::Migration
+class RemoveViewAsAttributesFromUser < ActiveRecord::Migration[4.2]
   def up
     User.all.each do |user|
       if user.bannedmode

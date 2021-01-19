@@ -1,4 +1,4 @@
-class AddViewAsAttribute < ActiveRecord::Migration
+class AddViewAsAttribute < ActiveRecord::Migration[4.2]
   def self.up
     add_column :users, :adminmode, :boolean, :default => true
     add_column :users, :checkoutpersonmode, :boolean, :default => false

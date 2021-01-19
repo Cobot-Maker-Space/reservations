@@ -1,4 +1,4 @@
-class AddCasLoginToUsers < ActiveRecord::Migration
+class AddCasLoginToUsers < ActiveRecord::Migration[4.2]
   def change
     add_column :users, :cas_login, :string
 

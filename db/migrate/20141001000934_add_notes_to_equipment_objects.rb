@@ -1,4 +1,4 @@
-class AddNotesToEquipmentObjects < ActiveRecord::Migration
+class AddNotesToEquipmentObjects < ActiveRecord::Migration[4.2]
   def change
     ActiveRecord::Base.transaction do
       add_column :equipment_objects, :notes, :text, limit: 16_777_215, null: false

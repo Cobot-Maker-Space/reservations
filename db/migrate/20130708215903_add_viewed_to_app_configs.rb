@@ -1,4 +1,4 @@
-class AddViewedToAppConfigs < ActiveRecord::Migration
+class AddViewedToAppConfigs < ActiveRecord::Migration[4.2]
   def up
   end
   def down

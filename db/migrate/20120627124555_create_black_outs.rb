@@ -1,4 +1,4 @@
-class CreateBlackOuts < ActiveRecord::Migration
+class CreateBlackOuts < ActiveRecord::Migration[4.2]
   def change
     create_table :black_outs do |t|
       t.integer :equipment_model_id

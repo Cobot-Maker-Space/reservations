@@ -1,4 +1,4 @@
-class ChangeDeletedAtToDateTime < ActiveRecord::Migration
+class ChangeDeletedAtToDateTime < ActiveRecord::Migration[4.2]
   def change
     change_column :users, :deleted_at, :datetime
     change_column :equipment_objects, :deleted_at, :datetime

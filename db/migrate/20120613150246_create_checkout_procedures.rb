@@ -1,4 +1,4 @@
-class CreateCheckoutProcedures < ActiveRecord::Migration
+class CreateCheckoutProcedures < ActiveRecord::Migration[4.2]
   def up
     create_table :checkout_procedures do |t|
       t.references :equipment_model

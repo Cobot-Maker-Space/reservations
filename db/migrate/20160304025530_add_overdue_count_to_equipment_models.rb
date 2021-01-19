@@ -1,4 +1,4 @@
-class AddOverdueCountToEquipmentModels < ActiveRecord::Migration[4.2]
+class AddOverdueCountToEquipmentModels < ActiveRecord::Migration[4.2][4.2]
 
   def self.up
     add_column :equipment_models, :overdue_count, :integer, :null => false, :default => 0

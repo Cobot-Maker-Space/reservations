@@ -1,4 +1,4 @@
-class CreateReservations < ActiveRecord::Migration
+class CreateReservations < ActiveRecord::Migration[4.2]
   def self.up
     create_table :reservations do |t|
       t.references :reserver
@@ -11,7 +11,7 @@ class CreateReservations < ActiveRecord::Migration
       t.timestamps
     end
   end
-  
+
   def self.down
     drop_table :reservations
   end

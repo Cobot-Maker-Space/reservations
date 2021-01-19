@@ -1,4 +1,4 @@
-class EquipmentModelsAssociatedEquipmentModels < ActiveRecord::Migration
+class EquipmentModelsAssociatedEquipmentModels < ActiveRecord::Migration[4.2]
   def self.up
     create_table :equipment_models_associated_equipment_models, :id => false do |t|
       t.references :equipment_model

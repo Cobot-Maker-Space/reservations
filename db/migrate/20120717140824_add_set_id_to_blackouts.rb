@@ -1,4 +1,4 @@
-class AddSetIdToBlackouts < ActiveRecord::Migration
+class AddSetIdToBlackouts < ActiveRecord::Migration[4.2]
   def self.up
     add_column :black_outs, :set_id, :integer
   end

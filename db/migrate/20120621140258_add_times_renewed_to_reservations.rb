@@ -1,4 +1,4 @@
-class AddTimesRenewedToReservations < ActiveRecord::Migration
+class AddTimesRenewedToReservations < ActiveRecord::Migration[4.2]
   def change
     add_column :reservations, :times_renewed, :integer
 
