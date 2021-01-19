@@ -9,3 +9,4 @@ services:
     volumes:
       - ./public:/usr/src/app/public
       - /tmp/reservations-unicorn:/tmp/unicorn
+      - ${RES_DB_SOCKET}:${RES_DB_SOCKET}
