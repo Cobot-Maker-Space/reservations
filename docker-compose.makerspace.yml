@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile.prod.makerspace
     env_file:
       - .env
+    restart: always
     volumes:
       - ./public:/usr/src/app/public
       - /tmp/reservations-unicorn:/tmp/unicorn
