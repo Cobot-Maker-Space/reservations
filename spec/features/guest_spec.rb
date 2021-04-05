@@ -116,7 +116,7 @@ describe 'guest users', type: :feature do
         update_cart_due_date(@new_date.to_s)
         visit '/'
         expect(page.find('#cart_due_date_cart').value).to \
-          eq(@new_date.strftime('%m/%d/%Y'))
+          eq(@new_date.strftime('%d/%m/%Y'))
       end
     end
   end

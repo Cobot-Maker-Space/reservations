@@ -5,12 +5,12 @@
     <%= hidden_field_tag "list[filter]", @filter %>
     <div class="form-group">
       <%= label_tag :start_date, 'Begin' %>
-      <%= text_field 'list', 'start_date', class: 'date_start_no_min form-control', value: @start_date.strftime('%m/%d/%Y') %>
+      <%= text_field 'list', 'start_date', class: 'date_start_no_min form-control', value: @start_date.strftime('%d/%m/%Y') %>
       <%= hidden_field_tag 'list[start_date]', @start_date, id: 'date_start_alt' %>
     </div>
     <div class="form-group">
       <%= label_tag :end_date, 'End' %>
-      <%= text_field "list", "end_date", class: "date_end_no_min form-control", value: @end_date.strftime('%m/%d/%Y') %>
+      <%= text_field "list", "end_date", class: "date_end_no_min form-control", value: @end_date.strftime('%d/%m/%Y') %>
       <%= hidden_field_tag "list[end_date]", @end_date, id: 'date_end_alt' %>
     </div>
     <%= submit_tag "Submit", class: 'btn btn-primary' %>

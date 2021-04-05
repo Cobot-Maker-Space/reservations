@@ -22,6 +22,7 @@
 //= require jquery.dotdotdot.js
 //= require moment
 //= require fullcalendar
+//= require fullcalendar/lang/en-gb
 //= require_tree
 //= require_self
 
@@ -115,6 +116,7 @@ $(document).ready(function() {
   // For availability calendars
   $('#avail-cal').fullCalendar({
     // generate event array locally for speed
+    // TODO: Modify so that partial day availability is shown
     events: function(start, end, timezone, callback) {
       var events = [];
       var data = JSON.parse($('#avail-cal').attr('data-src'));

@@ -59,8 +59,8 @@ describe ApplicationController, type: :controller do
         new_end = Time.zone.today + 4000.days
 
         put :reload_catalog_cart,
-            params: { cart: { start_date_cart: new_start.strftime('%m/%d/%Y'),
-                              due_date_cart: new_end.strftime('%m/%d/%Y') },
+            params: { cart: { start_date_cart: new_start.strftime('%d/%m/%Y'),
+                              due_date_cart: new_end.strftime('%d/%m/%Y') },
                       reserver_id: @new_reserver.id }
 
         expect(flash).not_to be_empty
