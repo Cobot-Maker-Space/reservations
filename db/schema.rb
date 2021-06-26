@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_23_142405) do
+ActiveRecord::Schema.define(version: 2021_04_05_191727) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name", null: false
@@ -33,15 +33,15 @@ ActiveRecord::Schema.define(version: 2020_01_23_142405) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "announcements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "announcements", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.text "message"
-    t.date "starts_at"
-    t.date "ends_at"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "app_configs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "app_configs", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.boolean "upcoming_checkin_email_active", default: true
     t.boolean "reservation_confirmation_email_active", default: true
     t.string "site_title", null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2020_01_23_142405) do
     t.boolean "requests_affect_availability", default: false
   end
 
-  create_table "blackouts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "blackouts", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.date "start_date"
     t.date "end_date"
     t.text "notice"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2020_01_23_142405) do
     t.integer "set_id"
   end
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "categories", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.integer "max_per_user"
     t.integer "max_checkout_length"
@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 2020_01_23_142405) do
     t.boolean "csv_import", default: false, null: false
   end
 
-  create_table "checkin_procedures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "checkin_procedures", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "equipment_model_id"
     t.string "step"
     t.datetime "created_at"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 2020_01_23_142405) do
     t.datetime "deleted_at"
   end
 
-  create_table "checkout_procedures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "checkout_procedures", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "equipment_model_id"
     t.string "step"
     t.datetime "created_at"
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 2020_01_23_142405) do
     t.datetime "deleted_at"
   end
 
-  create_table "equipment_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "equipment_items", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.string "serial"
     t.boolean "active", default: true
@@ -130,7 +130,7 @@ ActiveRecord::Schema.define(version: 2020_01_23_142405) do
     t.text "notes", size: :medium, null: false
   end
 
-  create_table "equipment_models", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "equipment_models", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.decimal "late_fee", precision: 10, scale: 2
@@ -151,17 +151,17 @@ ActiveRecord::Schema.define(version: 2020_01_23_142405) do
     t.integer "overdue_count", default: 0, null: false
   end
 
-  create_table "equipment_models_associated_equipment_models", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "equipment_models_associated_equipment_models", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "equipment_model_id"
     t.integer "associated_equipment_model_id"
   end
 
-  create_table "equipment_models_requirements", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "equipment_models_requirements", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "requirement_id", null: false
     t.integer "equipment_model_id", null: false
   end
 
-  create_table "requirements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "requirements", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "equipment_model_id"
     t.string "contact_name"
     t.string "contact_info"
@@ -172,12 +172,12 @@ ActiveRecord::Schema.define(version: 2020_01_23_142405) do
     t.string "description"
   end
 
-  create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "reservations", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "reserver_id"
     t.integer "checkout_handler_id"
     t.integer "checkin_handler_id"
-    t.date "start_date"
-    t.date "due_date"
+    t.datetime "start_date"
+    t.datetime "due_date"
     t.datetime "checked_out"
     t.datetime "checked_in"
     t.datetime "created_at"
@@ -192,7 +192,7 @@ ActiveRecord::Schema.define(version: 2020_01_23_142405) do
     t.integer "flags", default: 1
   end
 
-  create_table "sessions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "sessions", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
     t.datetime "created_at"
@@ -201,7 +201,7 @@ ActiveRecord::Schema.define(version: 2020_01_23_142405) do
     t.index ["updated_at"], name: "index_sessions_on_updated_at"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "username"
     t.string "first_name"
     t.string "last_name"
@@ -223,12 +223,12 @@ ActiveRecord::Schema.define(version: 2020_01_23_142405) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  create_table "users_requirements", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users_requirements", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.integer "user_id"
     t.integer "requirement_id"
   end
 
-  create_table "versions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "versions", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
     t.string "event", null: false

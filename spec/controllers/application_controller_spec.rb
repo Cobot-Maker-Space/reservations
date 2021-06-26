@@ -13,7 +13,6 @@ describe ApplicationController, type: :controller do
     allow(controller).to receive(:cart)
     allow(controller).to receive(:fix_cart_date)
     allow(controller).to receive(:set_view_mode)
-    allow(controller).to receive(:make_cart_compatible)
     sign_in FactoryGirl.create(:user)
   end
 

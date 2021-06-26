@@ -188,6 +188,7 @@ class EquipmentModelsController < ApplicationController
 
   def calculate_availability
     # get start and end dates
+    # TODO: If a reservation is only for part of a day, then show as available for that day
     @start_date = Time.zone.today.beginning_of_week(:sunday)
     @end_date = (Time.zone.today + 1.month).end_of_week(:sunday)
 

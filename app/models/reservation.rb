@@ -143,7 +143,8 @@ class Reservation < ApplicationRecord
   end
 
   # Same as number_for, just over a range of dates
-  def self.number_for_date_range(source, date_range, **attrs)
+  def self.number_for_date_range(source, datetime_range, **attrs)
+    date_range = (datetime_range.begin.to_date..datetime_range.end.to_date)
     date_range.map { |d| Reservation.number_for(source, date: d, **attrs) }
   end
 
@@ -223,7 +224,7 @@ class Reservation < ApplicationRecord
 
   def late_fee
     return 0 unless overdue
-    fee = equipment_model.late_fee * (end_date.to_date - due_date)
+    fee = equipment_model.late_fee * (end_date.to_date - due_date.to_date)
     return 0 if fee.negative?
     max_fee = equipment_model.late_fee_max
     return [fee, max_fee].min if max_fee.positive?

@@ -21,10 +21,12 @@
 //= require jquery.sticky.js
 //= require jquery.dotdotdot.js
 //= require moment
+//= require moment-timezone-with-data
 //= require fullcalendar
 //= require fullcalendar/lang/en-gb
 //= require_tree
 //= require_self
+//= require datetimepicker
 
 function truncate() {
   if ($(".caption_cat").length) {
@@ -60,6 +62,10 @@ function truncate() {
 
 // general submit on change class
 $(document).on('change', '.autosubmitme', function() {
+  var start = moment.tz($('#cart_start_date_cart').val(), 'DD/MM/YYYY HH:mm', 'Europe/London');
+  $('#date_start_alt').val(start.format());
+  var end = moment.tz($('#cart_due_date_cart').val(), 'DD/MM/YYYY HH:mm', 'Europe/London');
+  $('#date_end_alt').val(end.format());
   // test for cart date fields to toggle cart spinner
   if ( $(this).parents('div:first').is("#cart_dates") ) {
     pause_cart();
@@ -116,10 +122,10 @@ $(document).ready(function() {
   // For availability calendars
   $('#avail-cal').fullCalendar({
     // generate event array locally for speed
-    // TODO: Modify so that partial day availability is shown
     events: function(start, end, timezone, callback) {
       var events = [];
       var data = JSON.parse($('#avail-cal').attr('data-src'));
+      console.log(data);
 
       for(var i=0; i<data.length; i++) {
         var json_event = data[i];
@@ -128,7 +134,7 @@ $(document).ready(function() {
           if(date > end) {
             break;
           } else {
-            var event = { start: date, end: date, title: json_event.title, allDay: true, backgroundColor: json_event.color, borderColor: json_event.color };
+            var event = { start: date, end: date, title: json_event.title, allDay: json_event.allDay, backgroundColor: json_event.color, borderColor: json_event.color };
             events.push(event);
           }
         }

@@ -83,7 +83,6 @@ class ApplicationController < ActionController::Base
     # make sure we reset the reserver when we log in
     reserver = current_user ? current_user : current_or_guest_user
     session[:cart] ||= Cart.new
-    make_cart_compatible
     # if there is no cart reserver_id or the old cart reserver was deleted
     # (i.e. we've logged in and the guest user was destroyed)
     if session[:cart].reserver_id.nil? ||
@@ -128,16 +127,9 @@ class ApplicationController < ActionController::Base
   end
 
   def fix_cart_date
-    cart.start_date = Time.zone.today if cart.start_date < Time.zone.today
+    seconds = 30.minutes
+    cart.start_date = (Time.at((Time.zone.now.to_f / seconds).round * seconds)) if cart.start_date < Time.zone.now
     cart.fix_due_date
-  end
-
-  # If user's session has an old Cart object that stores items in Array rather
-  # than a Hash (see #587), regenerate the Cart.
-  # TODO: Remove in ~2015, when nobody could conceivably run the old app?
-  def make_cart_compatible
-    return if session[:cart].items.is_a? Hash
-    session[:cart] = Cart.new
   end
 
   # check to see if the guest user functionality is disabled
@@ -160,8 +152,8 @@ class ApplicationController < ActionController::Base
     cart = session[:cart]
     flash.clear
     begin
-      cart.start_date = params[:cart][:start_date_cart].to_date
-      cart.due_date = params[:cart][:due_date_cart].to_date
+      cart.start_date = params[:cart][:start_date_cart].to_datetime
+      cart.due_date = params[:cart][:due_date_cart].to_datetime
       cart.fix_due_date
       cart.reserver_id =
         if params[:reserver_id].blank?
@@ -170,7 +162,7 @@ class ApplicationController < ActionController::Base
           params[:reserver_id]
         end
     rescue ArgumentError
-      cart.start_date = Time.zone.today
+      cart.start_date = Time.zone.now
       flash[:error] = 'Please enter a valid start or due date.'
     end
 

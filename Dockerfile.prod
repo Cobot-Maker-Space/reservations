@@ -27,7 +27,7 @@ WORKDIR /usr/src/app
 COPY Gemfile* /usr/src/app/
 COPY Gemfile.lock* /usr/src/app/
 COPY package.json /usr/src/app/
-RUN gem install bundler --no-document 
+RUN gem install bundler --no-document
 
 # https://northsail.io/articles/ruby-sassc-illegal-instruction
 RUN bundle config --local build.sassc --disable-march-tune-native
@@ -50,7 +50,8 @@ ENTRYPOINT ["entrypoint-prod.sh"]
 EXPOSE 3000
 
 # Update and cleanup container
-RUN apt-get upgrade -y && apt-get autoclean \
+RUN apt-get update -qq && apt-get upgrade -y \
+                       && apt-get autoclean \
                        && apt-get autoremove -y \
                        && rm -rf /var/lib/apt \
                                  /var/lib/dpkg \

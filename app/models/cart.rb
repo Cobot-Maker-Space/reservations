@@ -9,8 +9,10 @@ class Cart # rubocop:disable ClassLength
   def initialize
     @errors = ActiveModel::Errors.new(self)
     @items = {}
-    @start_date = Time.zone.today
-    @due_date = Time.zone.today + 1.day
+    seconds = 30.minutes
+    start = Time.at((Time.zone.now.to_f / seconds).round * seconds)
+    @start_date = start
+    @due_date = start + 1.day
     @reserver_id = nil
   end
 
@@ -105,7 +107,7 @@ class Cart # rubocop:disable ClassLength
 
   # Returns the cart's duration
   def duration # in days
-    @due_date - @start_date + 1
+    @due_date.to_date - @start_date.to_date + 1
   end
 
   # Returns the reserver
