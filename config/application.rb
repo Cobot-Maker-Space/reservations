@@ -87,3 +87,8 @@ module Reservations
     end
   end
 end
+
+require "active_storage/attached"
+ActiveSupport.on_load(:active_record) do
+  extend ActiveStorage::Attached::Model
+end
