@@ -2,7 +2,7 @@
 
 class AppConfig < ApplicationRecord
   include ActiveStorage::Attached::Model
-  has_one_attached :favicon
+  has_one :favicon
 
   validates :favicon,
             content_type: { in: 'image/vnd.microsoft.icon',
