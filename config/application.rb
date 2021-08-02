@@ -3,7 +3,6 @@
 require_relative 'boot'
 
 require 'active_storage/engine'
-require 'active_storage/attached/macros'
 
 require 'rails/all'
 
@@ -87,4 +86,9 @@ module Reservations
         config.action_mailer.default_url_options
     end
   end
+end
+
+require "active_storage/attached"
+ActiveSupport.on_load(:active_record) do
+  extend ActiveStorage::Attached::Macros
 end
