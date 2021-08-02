@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class AppConfig < ApplicationRecord
-  include ActiveStorage::Attached::Model
   has_one_attached :favicon
 
   validates :favicon,
