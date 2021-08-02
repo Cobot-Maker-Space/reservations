@@ -10,11 +10,6 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups(:default, Rails.env))
 
-require "active_storage/attached"
-ActiveSupport.on_load(:active_record) do
-  extend ActiveStorage::Attached::Macros
-end
-
 module Reservations
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified
