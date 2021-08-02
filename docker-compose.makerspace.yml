@@ -9,5 +9,5 @@ services:
     restart: always
     volumes:
       - ./public:/usr/src/app/public
-      - /tmp/reservations-unicorn:/tmp/unicorn
+      - /tmp/cobotmakerspace-equipment:/tmp/cobotmakerspace-equipment
       - ${RES_DB_SOCKET}:${RES_DB_SOCKET}
